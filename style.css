@@ -1,0 +1,15 @@
+#calc {
+    display: flex;
+}
+
+.flexCont {
+    display: flex;
+}
+
+.number {
+    background-color: blue;
+}
+
+.operator {
+    background-color: orange;
+}
