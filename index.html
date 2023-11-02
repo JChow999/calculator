@@ -8,30 +8,36 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type="text/css">
 </head>
 <body>
-    <h1>Calculator fun</h1>
-    <div id="calc" class="flexCont">
-        <div>
+    <div id="wrapper">
+        <h1>Calculator fun</h1>
+        <div id="calc" class="flexCont">
+
             <div id="numCont">
-                <h3 id="numDisplay">000000</h3>
+                <p id="expression" class="displayNum">102 + 39 * 214</p>
+                <h3 id="numDisplay" class="displayNum">0</h3>
             </div>
-        </div>
-        <div id="buttons" class="flexCont">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button id="zero">0</button>
-            <button>+</button>
-            <button>-</button>
-            <button>*</button>
-            <button>/</button>
-            <button>=</button>
-            <button>AC</button>
+            <div id="buttons" class="flexCont">
+                <button>AC</button>
+                <button>Del</button>
+                <button>+/-</button>
+                <button class="operatorBtn">%</button>
+                <button class="numBtn">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button class="operatorBtn">+</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button class="operatorBtn">-</button>
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button class="operatorBtn">*</button>
+                <button class="numBtn">0</button>
+                <button>.</button>
+                <button class="operatorBtn">=</button>
+                <button class="operatorBtn">/</button>
+            </div>
         </div>
     </div>
     <script src="javascript.js"></script>

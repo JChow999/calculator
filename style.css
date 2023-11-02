@@ -2,43 +2,72 @@
     font-family: 'Roboto', 'Times New Roman', Times, serif;
 }
 
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #calc {
     display: flex;
     flex-direction: column;
-    width: 40%;
-    height: 50%;
+    width: 450px;
+    height: 500px;
     background-color: lightblue;
+    border-radius: 9px;
 }
 
 #numCont {
     border-style: solid;
-    margin: 5px;
+    margin: 20px;
+    margin-bottom: 5px;
     padding: 5px;
+    text-align: right;
+}
+
+.displayNum {
+    margin: 0;
+    padding: 0;
+}
+
+#expression {
+    font-size: 15px;
 }
 
 #numDisplay {
-    text-align: right;
-    letter-spacing: .3rem;
-    margin: 0;
-    padding: 0;
+    font-size: 35px;
+    height: 50px;
+    letter-spacing: 1px;
+
 }
 
 #buttons {
     display: grid;
     flex: auto;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5px;
-    margin: 5px;
+    justify-content: center;
+    grid-template-columns: repeat(4, 100px);
+    margin: 20px;
 }
 
 .flexCont {
     display: flex;
 }
 
+button {
+    height: 50px;
+    width: 60px;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+.numBtn {
+    background-color: lightgray;
+}
+
 .number {
     background-color: blue;
 }
 
-.operator {
+.operatorBtn {
     background-color: orange;
 }
