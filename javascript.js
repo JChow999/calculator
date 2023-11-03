@@ -1,18 +1,28 @@
-let operand1 = '';
+let operand1 = '0';
 let operand2 = '';
 let operator = '';
 let endVal = '';
+let expression = [];
 
-const expression = document.querySelector('#expression');
+const expressionDisp = document.querySelector('#expression');
 const numDisplay = document.querySelector('#numDisplay');
 const numBtn = document.querySelectorAll('.numBtn')
 
 document.onkeydown = function (e) {
-    const keyIsNum = isFinite(e.key);
-    if (keyIsNum) {
-        operand1 += e.key;
-        updateDisplay(numDisplay, operand1)
+    if (e.key == 'Backspace') {
+        if (operand1.length <= 1) {
+            operand1 = '0';
+        } else {
+            operand1 = operand1.slice(0, operand1.length - 1);
+        }
+    } else if (isFinite(e.key)) {
+        if (operand1.charAt(0) == 0) {
+            operand1 = e.key;
+        } else {
+            operand1 += e.key;  
+        }
     }
+    updateDisplay(numDisplay, operand1)
 }
 
 function removeChar() {
@@ -53,6 +63,9 @@ function modulo(a, b) {
 }
 
 function operate(a, b) {
+
+
+
     switch(operator) {
         case '/':
             return num1 = divide(a, b);
