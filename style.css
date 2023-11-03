@@ -2,6 +2,10 @@
     font-family: 'Roboto', 'Times New Roman', Times, serif;
 }
 
+body {
+    background-color: gray;
+}
+
 #wrapper {
     display: flex;
     flex-direction: column;
@@ -11,17 +15,17 @@
 #calc {
     display: flex;
     flex-direction: column;
-    width: 450px;
+    width: 350px;
     height: 500px;
     background-color: lightblue;
     border-radius: 9px;
 }
 
 #numCont {
+    background-color: white;
     border-style: solid;
-    margin: 20px;
-    margin-bottom: 5px;
-    padding: 5px;
+    margin: 30px;
+    padding: 5px 10px 5px 5px;
     text-align: right;
 }
 
@@ -38,14 +42,15 @@
     font-size: 35px;
     height: 50px;
     letter-spacing: 1px;
-
 }
 
 #buttons {
     display: grid;
     flex: auto;
     justify-content: center;
-    grid-template-columns: repeat(4, 100px);
+    grid-template-columns: repeat(4, 70px);
+    grid-auto-rows: minmax(50px, auto);
+    gap: 2px;
     margin: 20px;
 }
 
