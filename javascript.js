@@ -37,9 +37,14 @@ function updateNumDisp(key) {
             numDispVal += key;  
         }
     } else if (key == '.') {
+        if (numDispVal.length == 0) {
+            numDispVal = "0.";
+        }
         if (numDispVal.indexOf('.') == -1) {
             numDispVal += key;
         }
+
+
     } else if (/[+\-\*/%]/.test(key)) {
         if (expression.length < 1 || numDispVal != "") {
             expression.push(numDispVal);
@@ -60,22 +65,21 @@ function updateNumDisp(key) {
         numDispVal = "";
 
     } else if (key == '=' || key == 'Enter') {
-        if (expression.length < 0) {
-            if (numDispVal != '') {
-                expression.push(numDispVal);
-                operate();
-                numDispVal = '';
-            } else {
-                return
-            }
+        if (/[+\-\*/%]/.test(expression[expression.length - 1]) && expression == []) {
+            return
         } else if (isNaN(expression[expression.length - 1])) {
             if (/[+\-\*/%]/.test(expression[expression.length - 1])) {
                 expression.push(numDispVal);
                 operate();
                 numDispVal = '';
-            }
-                
-        }
+            } else {
+                return
+            }              
+        } else if (numDispVal != '') {
+            expression.push(numDispVal);
+            operate();
+            numDispVal = '';
+        } 
     }
     
     updateDisplay()
@@ -88,7 +92,6 @@ function updateDisplay() {
     } else {
         expressionDisp.innerHTML = expression.join(" ");
     }
-    
 
     if (numDispVal.length == 0) {
         numDisplay.innerHTML = '0'
@@ -113,6 +116,7 @@ function operate() {
             expression.splice((index-1), 3, endVal)
         }
     }
+    expression[0] = expression[0].toFixed(4);
 }
 
 function calculate(operandOne, operator, operandTwo) {
