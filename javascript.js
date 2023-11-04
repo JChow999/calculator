@@ -58,16 +58,28 @@ function updateNumDisp(key) {
     } else if (key == 'AC') {
         expression = [];
         numDispVal = "";
+
     } else if (key == '=' || key == 'Enter') {
-        if (numDispVal != '')
-            expression.push(numDispVal);
-            operate();
-            numDispVal = '';
+        if (expression.length < 0) {
+            if (numDispVal != '') {
+                expression.push(numDispVal);
+                operate();
+                numDispVal = '';
+            } else {
+                return
+            }
+        } else if (isNaN(expression[expression.length - 1])) {
+            if (/[+\-\*/%]/.test(expression[expression.length - 1])) {
+                expression.push(numDispVal);
+                operate();
+                numDispVal = '';
+            }
+                
+        }
     }
     
-    // For updating the displays
     updateDisplay()
-    console.log(`numDispVal:${numDispVal} \nExpression: ${expression}`)
+    console.log(`numDispVal:${numDispVal} \nExpression: ${expression}\nKey: ${key}`)
 }
 
 function updateDisplay() {
