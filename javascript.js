@@ -65,20 +65,16 @@ function updateNumDisp(key) {
         numDispVal = "";
 
     } else if (key == '=' || key == 'Enter') {
-        if (/[+\-\*/%]/.test(expression[expression.length - 1]) && expression == []) {
-            return
-        } else if (isNaN(expression[expression.length - 1])) {
-            if (/[+\-\*/%]/.test(expression[expression.length - 1])) {
-                expression.push(numDispVal);
-                operate();
-                numDispVal = '';
-            } else {
-                return
-            }              
-        } else if (numDispVal != '') {
+        if (numDispVal == '' && /[+\-\*/%]/.test(expression[expression.length - 1])) {
+            expression.push('0');
+            operate();
+            numDispVal = '';
+        } else if (/[+\-\*/%]/.test(expression[expression.length - 1])) {
             expression.push(numDispVal);
             operate();
             numDispVal = '';
+        } else if (/[0-9]/.test([expression.length - 10])) {
+            return
         } 
     }
     
@@ -116,7 +112,7 @@ function operate() {
             expression.splice((index-1), 3, endVal)
         }
     }
-    expression[0] = expression[0].toFixed(4);
+    expression[0] = expression[0].toFixed(2);
 }
 
 function calculate(operandOne, operator, operandTwo) {
